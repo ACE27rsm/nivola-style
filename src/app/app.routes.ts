@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UsatoComponent } from './usato/usato.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 export const routes: Routes = [
   {
@@ -12,5 +14,15 @@ export const routes: Routes = [
     path: 'usato',
     component: UsatoComponent,
     title: 'Usato - Nivola Style',
+  },
+  {
+    path: 'chi-siamo',
+    component: AboutUsComponent,
+    title: 'Chi Siamo - Nivola Style',
+  },
+  {
+    path: 'contatti',
+    component: ContactsComponent,
+    title: 'Contatti- Nivola Style',
   },
 ];

@@ -1,0 +1,23 @@
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: semi-bold;
+  font-size: 1.5rem;
+}
+
+.link_selected::after {
+  content: "";
+  height: 1px;
+  display: block;
+  background: white;
+  animation: link_underline 0.5s;
+}
+
+@keyframes link_underline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

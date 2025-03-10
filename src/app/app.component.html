@@ -1,15 +1,7 @@
-<main>
-  <header class="p-2">
-    <a [routerLink]="['/']">
-      <img
-        class="w-32"
-        src="/nivola-style-logo.png"
-        alt="logo"
-        aria-hidden="true"
-      />
-    </a>
-  </header>
+<main id="app-root">
+  <app-header></app-header>
   <section class="content">
     <router-outlet></router-outlet>
   </section>
+  <app-footer></app-footer>
 </main>
