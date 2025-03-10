@@ -11,24 +11,78 @@
       />
     </a>
 
-    <div class="flex gap-8">
-      <a
-        [routerLink]="['usato']"
-        [class.link_selected]="currentUrl === '/usato'"
-        >USATO</a
-      >
-      <a
-        [routerLink]="['chi-siamo']"
-        [class.link_selected]="currentUrl === '/chi-siamo'"
-        >CHI SIAMO</a
-      >
-      <a
-        [routerLink]="['contatti']"
-        [class.link_selected]="currentUrl === '/contatti'"
-        >CONTATTI</a
-      >
+    <div class="hidden md:block">
+      <div class="flex gap-8">
+        <a
+          [routerLink]="['usato']"
+          [class.link_selected]="currentUrl === '/usato'"
+          >USATO</a
+        >
+        <a
+          [routerLink]="['chi-siamo']"
+          [class.link_selected]="currentUrl === '/chi-siamo'"
+          >CHI SIAMO</a
+        >
+        <a
+          [routerLink]="['contatti']"
+          [class.link_selected]="currentUrl === '/contatti'"
+          >CONTATTI</a
+        >
+      </div>
     </div>
 
-    <img src="/logo/bmw_logo.svg" class="w-16 h-16" alt="" />
+    <img src="/logo/bmw_logo.svg" class="w-16 h-16 hidden md:block" alt="" />
+
+    <div
+      class="h-10 w-10 md:hidden flex flex-col justify-evenly cursor-pointer"
+      (click)="onMenuClick()"
+    >
+      <div class="w-full border-b-1 border-solid border-white"></div>
+      <div class="w-full border-b-1 border-solid border-white"></div>
+      <div class="w-full border-b-1 border-solid border-white"></div>
+    </div>
+
+    <div
+      id="drawer-container"
+      class="fixed w-dvw h-dvh top-0 left-0 text-white z-50"
+    >
+      <div class="relative w-full h-full">
+        <div
+          class="backdrop absolute w-dvw h-dvh opacity-90 bg-gray-500 transition-all"
+          (click)="onMenuClick()"
+        ></div>
+
+        <div
+          class="content absolute w-full max-w-[70vw] min-h-dvh p-4 right-0 bg-gray-800 flex flex-col gap-8 items-center translate-x-[100vw]"
+        >
+          <img src="/logo/bmw_logo.svg" class="w-16 h-16" alt="" />
+
+          <a
+            [routerLink]="['']"
+            [class.link_selected]="currentUrl === '/'"
+            (click)="onMenuClick()"
+            >HOME</a
+          >
+          <a
+            [routerLink]="['usato']"
+            [class.link_selected]="currentUrl === '/usato'"
+            (click)="onMenuClick()"
+            >USATO</a
+          >
+          <a
+            [routerLink]="['chi-siamo']"
+            [class.link_selected]="currentUrl === '/chi-siamo'"
+            (click)="onMenuClick()"
+            >CHI SIAMO</a
+          >
+          <a
+            [routerLink]="['contatti']"
+            [class.link_selected]="currentUrl === '/contatti'"
+            (click)="onMenuClick()"
+            >CONTATTI</a
+          >
+        </div>
+      </div>
+    </div>
   </div>
 </header>
