@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { IAnnouncement } from '../../types/Types';
 import numberFormat from '../../utils/numberFormat';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-announcement',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './announcement.component.html',
   styleUrl: './announcement.component.css',
 })

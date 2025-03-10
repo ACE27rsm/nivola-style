@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import gsap from 'gsap';
 import { IAnnouncement } from '../../types/Types';
 import { AnnouncementComponent } from '../announcement/announcement.component';
-import { MotoItService } from '../serivces/moto-it.service';
+import { MotoItService } from '../../serivces/moto-it.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({

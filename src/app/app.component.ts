@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         if (this.scroll) {
-          this.scroll.scrollTo('top');
+          this.scroll.scrollTo('top', { duration: 0 });
         }
       }
     });
@@ -45,11 +45,10 @@ export class AppComponent implements OnInit {
     });
 
     this.scroll.on('scroll', (event) => {
-      console.log(event);
       if (event.direction === 'down') {
         gsap.to('header', {
-          y: -100,
-          duration: 0.5,
+          y: -200,
+          duration: 1,
           ease: 'power1.out',
         });
         gsap.to('header', {
@@ -59,6 +58,7 @@ export class AppComponent implements OnInit {
             event.scroll.y > 0
               ? 'rgba(0, 0, 0, 0.5)'
               : 'rgba(255, 255, 255, 0)',
+          delay: 0.8,
         });
       } else {
         gsap.to('header', {

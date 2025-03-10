@@ -1,0 +1,27 @@
+<section class="mt-32 flex justify-center">
+  <article class="w-dvw max-w-[1024px]">
+    @if (announcement) {
+    <h1>{{ announcement.title }}</h1>
+
+    <div class="flex justify-center">
+      <div class="w-dvw">
+        <ngb-carousel
+          [showNavigationArrows]="true"
+          [showNavigationIndicators]="true"
+          class="min-h-[768px]"
+        >
+          <ng-template
+            ngbSlide
+            *ngFor="let image of announcement.images"
+            class="w-full"
+          >
+            <div class="picsum-img-wrapper flex justify-center">
+              <img [src]="image.thumbnail" class="w-full object-cover" />
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+    }
+  </article>
+</section>

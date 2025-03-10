@@ -1,3 +1,9 @@
+export interface IAnnouncementImages {
+  href: string;
+  type: string;
+  thumbnail: string;
+}
+
 export interface IAnnouncement {
   id: string;
   brand: string;
@@ -6,5 +12,16 @@ export interface IAnnouncement {
   price: number;
   km: number;
   img: string;
+  images: IAnnouncementImages[];
   description: string;
+  registered: boolean;
+  offerType: string;
+  warranty: string;
+  emissionClass: string;
+  sellConditions: string;
+  displacement: number;
+  crashed: boolean;
+  depowered: boolean;
+  ABS: boolean;
+  ev: boolean;
 }

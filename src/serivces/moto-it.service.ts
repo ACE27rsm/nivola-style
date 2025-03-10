@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAnnouncement } from '../../types/Types';
+import { IAnnouncement, IAnnouncementImages } from '../types/Types';
 
 @Injectable({
   providedIn: 'root',
@@ -12,26 +12,115 @@ export class MotoItService {
   // y *********************************************************
   // y *********************************************************
   // y *********************************************************
-  private async getAnnouncementDetails(
-    announcementId: string
-  ): Promise<IAnnouncement> {
-    const details =
+  async getAnnouncementDetails(announcementId: string): Promise<IAnnouncement> {
+    const url =
       this.baseURL +
       '/detail/detail?' +
       new URLSearchParams({ ID: announcementId });
 
-    console.log(details);
+    const response = await fetch(url);
 
-    return {
-      id: '',
-      brand: '',
-      title: '',
+    const htmlString = await response.text();
+
+    const parser = new DOMParser();
+
+    const DOM = parser.parseFromString(htmlString, 'text/html');
+
+    const body = DOM.querySelector('body');
+
+    const id = announcementId;
+    let images: IAnnouncementImages[] = [];
+    const scriptText = body!.querySelector('script')?.textContent || '';
+
+    if (scriptText) {
+      const match = scriptText.match(/(\[.*\])/);
+      if (match?.[1]) {
+        const data = JSON.parse(match[1]);
+        images = data;
+      }
+    }
+
+    const brand =
+      body!.querySelector('.dlr-modal__print__header__title')?.textContent ||
+      '';
+
+    const title =
+      body!.querySelector('.dlr-modal__print__header__subtitle')?.textContent ||
+      '';
+
+    const description =
+      body!.querySelector('.dlr-modal__description__content')?.textContent ||
+      '';
+
+    const price = Number(
+      body!
+        .querySelector('[itemprop="price"]')
+        ?.textContent?.replace('.', '') || 0
+    );
+
+    const km = Number(
+      body!
+        .querySelector('tbody :nth-child(2) td')
+        ?.textContent?.replace('.', '') || 0
+    );
+
+    const registered =
+      body!.querySelector('tbody :nth-child(3) td')?.textContent === 'Si';
+
+    const offerType =
+      body!.querySelector('tbody :nth-child(4) td')?.textContent || '';
+
+    const warranty =
+      body!.querySelector('tbody :nth-child(5) td')?.textContent || '';
+
+    const emissionClass =
+      body!.querySelector('tbody :nth-child(6) td')?.textContent || '';
+
+    const sellConditions =
+      body!.querySelector('tbody :nth-child(7) td')?.textContent || '';
+
+    const displacement = Number(
+      body!
+        .querySelector('tbody :nth-child(8) td')
+        ?.textContent?.replace(' cc', '')
+        .replace('.', '') || 0
+    );
+
+    const crashed =
+      body!.querySelector('tbody :nth-child(11) td')?.textContent === 'Si';
+
+    const depowered =
+      body!.querySelector('tbody :nth-child(12) td')?.textContent === 'Si';
+
+    const ABS =
+      body!.querySelector('tbody :nth-child(14) td')?.textContent === 'Si';
+
+    const ev =
+      body!.querySelector('tbody :nth-child(16) td')?.textContent === 'Si';
+
+    const announcement = {
+      id,
+      brand,
+      title,
       year: 0,
-      price: 0,
-      km: 0,
-      img: '',
-      description: '',
+      price,
+      km,
+      img: images[0]?.href || '',
+      description,
+      images,
+      registered,
+      offerType,
+      warranty,
+      emissionClass,
+      sellConditions,
+      displacement,
+      crashed,
+      depowered,
+      ABS,
+      ev,
     };
+
+    return announcement;
   }
 
   // y *********************************************************
@@ -112,6 +201,17 @@ export class MotoItService {
         km,
         img,
         description,
+        images: [],
+        registered: true,
+        offerType: '',
+        warranty: '',
+        emissionClass: '',
+        sellConditions: '',
+        displacement: 0,
+        crashed: false,
+        depowered: false,
+        ABS: false,
+        ev: false,
       });
     });
 

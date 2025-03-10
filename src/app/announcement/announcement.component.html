@@ -1,15 +1,16 @@
 <a
   class="announcement col-span-1 flex justify-center items-center h-full w-full cursor-pointer"
+  [routerLink]="['/usato', announcement.id]"
 >
   <div
-    class="w-64 bg-gray-300 rounded-md overflow-hidden hover:shadow-2xl h-full"
+    class="w-80 bg-gray-50 rounded-md overflow-hidden hover:scale-105 h-full transition-all"
   >
     <img
       [src]="announcement.img"
       alt="{{ announcement.id }} image"
-      class="w-full h-48 object-cover"
+      class="w-full h-52 object-cover"
     />
-    <div class="p-4">
+    <div class="p-4 flex flex-col grow">
       <div class="flex justify-between items-end">
         <div class="font-bold text-lg">
           {{ announcement.brand.toUpperCase() }}
@@ -24,7 +25,7 @@
         {{ announcement.title }}
       </div>
 
-      <div class="text-xs my-2">{{ announcement.description }}</div>
+      <div class="text-xs my-2 grow">{{ announcement.description }}</div>
 
       <div class="border-b-2 border-solid border-black"></div>
 

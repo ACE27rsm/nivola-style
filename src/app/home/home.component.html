@@ -1,13 +1,89 @@
-<section class="hero h-dvh">
-  <video
-    class="w-full h-full object-cover"
-    autoPlay
-    playsInline
-    muted
-    loop="{true}"
-  >
-    <source src="/video/hero.mp4" type="video/mp4" />
-  </video>
+<section class="hero h-dvh" data-scroll-section>
+  <div data-scroll data-scroll-speed="1" class="w-full h-full object-cover">
+    <video
+      class="w-full h-full object-cover"
+      autoPlay
+      playsInline
+      muted
+      loop="{true}"
+    >
+      <source src="/video/hero.mp4" type="video/mp4" />
+    </video>
+  </div>
 </section>
 
-<section class="h-dvh">CIAO</section>
+<section data-scroll-section class="p-4 md:p-0">
+  <div class="max-w-[1280px] mx-auto py-5">
+    <h1
+      class="text-white font-black !text-8xl"
+      data-scroll
+      data-scroll-speed="3"
+    >
+      NIVOLA STYLE SRL
+    </h1>
+
+    <p class="text-white mt-[80vh]" data-scroll data-scroll-speed="4">
+      La concessionaria NIVOLA STYLE si presenta a Rimini e provincia e
+      Repubblica di San Marino con uno showroom dedicato alla vendita e alla
+      assistenza delle prestigiose motociclette BMW.
+      <br />
+      <br />
+      Cuore della concessionaria è il personale, forte dell’esperienza decennale
+      nel settore motociclistico, al quale sono dedicate preziose risorse per
+      una scrupolosa preparazione attraverso costanti corsi di aggiornamento.
+      <br />
+      <br />
+
+      Tutte le aree operative sono dirette da professionisti capaci e
+      responsabili che rispondono quotidianamente alle diverse richieste: dal
+      preventivo o acquisto di una moto nuova o usata, alla migliore formula di
+      finanziamento, alla prenotazione di un tagliando o di un qualsiasi lavoro
+      presso la qualificata officina.
+      <br />
+      <br />
+
+      Nella nostra concessionaria potrete trovare ricambi e accessori di ogni
+      tipologia e nella parte dedicata agli accessori e abbigliamento tutto
+      quello che può servire per rendere confortevole e sicuro il vostro
+      viaggio.
+      <br />
+      <br />
+
+      La passione per il mondo delle due ruote è ciò che ci contraddistingue ed
+      è quello che mettiamo al servizio del cliente per offrire un servizio
+      unico sotto ogni punto di vista.
+      <br />
+      <br />
+
+      Vieni a trovarci e non rimarrai deluso.
+    </p>
+  </div>
+</section>
+
+<section
+  data-scroll-section
+  class="flex flex-col sm:flex-row justify-evenly items-center bg-[#0090D3] gap-20 py-32"
+>
+  <a
+    href="http://www.nivolastyle.bmw-motorrad.it/it/nivolastyle/it/index.html"
+    class="flex flex-col justify-center items-center w-max text-2xl"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="/logo/bmw_logo.svg" alt="bmw logo" class="w-20 mx-auto mb-3" />
+
+    <div class="font-bold text-black text-4xl">Concessionaria BMW</div>
+    <div class="text-white">Entra nel portale BMW Rimini</div>
+  </a>
+  <a
+    href="https://appuntamento-online.bmw-motorrad.it/it/login"
+    class="flex flex-col justify-center items-center w-max text-2xl"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="/assistenza_icon.svg" alt="bmw logo" class="w-20 mx-auto mb-3" />
+
+    <div class="font-bold text-black text-4xl">Assistenza</div>
+    <div class="text-white">Richiedi un incontro con l'Officina</div>
+  </a>
+</section>
