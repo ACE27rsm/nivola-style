@@ -1,4 +1,5 @@
 export interface IAnnouncement {
+  id: string;
   brand: string;
   title: string;
   year: number;

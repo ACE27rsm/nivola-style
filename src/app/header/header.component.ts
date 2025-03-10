@@ -22,7 +22,6 @@ export class HeaderComponent {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.currentUrl = val.url;
-        console.log(this.currentUrl);
       }
     });
   }
@@ -35,13 +34,13 @@ export class HeaderComponent {
         display: 'block',
       });
       gsap.to('#drawer-container .backdrop', {
-        duration: 0.2,
+        duration: 0.1,
         opacity: 1,
         pointerEvents: 'all',
         ease: 'power2.inOut',
       });
       gsap.to('#drawer-container .content', {
-        duration: 0.2,
+        duration: 0.5,
         transform: 'translateX(0)',
         ease: 'power2.inOut',
       });

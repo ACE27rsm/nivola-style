@@ -23,6 +23,7 @@ export class MotoItService {
     console.log(details);
 
     return {
+      id: '',
       brand: '',
       title: '',
       year: 0,
@@ -96,8 +97,14 @@ export class MotoItService {
       const description =
         announcement.querySelector('.dlr-card__info__content')?.textContent ||
         '';
+      const id =
+        announcement
+          .querySelector('.dlr-card__link')
+          ?.getAttribute('data-target')
+          ?.replaceAll(/\D/g, '') || '';
 
       newAnnouncements.push({
+        id,
         brand,
         title,
         year,
@@ -134,6 +141,6 @@ export class MotoItService {
 
     console.log(announcements);
 
-    return [];
+    return announcements;
   }
 }

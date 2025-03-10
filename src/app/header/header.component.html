@@ -14,14 +14,14 @@
     <div class="hidden md:block">
       <div class="flex gap-8">
         <a
-          [routerLink]="['usato']"
-          [class.link_selected]="currentUrl === '/usato'"
-          >USATO</a
-        >
-        <a
           [routerLink]="['chi-siamo']"
           [class.link_selected]="currentUrl === '/chi-siamo'"
           >CHI SIAMO</a
+        >
+        <a
+          [routerLink]="['usato']"
+          [class.link_selected]="currentUrl === '/usato'"
+          >USATO</a
         >
         <a
           [routerLink]="['contatti']"
@@ -45,11 +45,13 @@
     <div
       id="drawer-container"
       class="fixed w-dvw h-dvh top-0 left-0 text-white z-50"
+      [class.hidden]="!isMenuOpen"
     >
       <div class="relative w-full h-full">
         <div
-          class="backdrop absolute w-dvw h-dvh opacity-90 bg-gray-500 transition-all"
+          class="backdrop absolute w-dvw h-dvh opacity-90 transition-all pointer-events-none"
           (click)="onMenuClick()"
+          [class.bg-gray-500]="isMenuOpen"
         ></div>
 
         <div
@@ -64,16 +66,16 @@
             >HOME</a
           >
           <a
-            [routerLink]="['usato']"
-            [class.link_selected]="currentUrl === '/usato'"
-            (click)="onMenuClick()"
-            >USATO</a
-          >
-          <a
             [routerLink]="['chi-siamo']"
             [class.link_selected]="currentUrl === '/chi-siamo'"
             (click)="onMenuClick()"
             >CHI SIAMO</a
+          >
+          <a
+            [routerLink]="['usato']"
+            [class.link_selected]="currentUrl === '/usato'"
+            (click)="onMenuClick()"
+            >USATO</a
           >
           <a
             [routerLink]="['contatti']"

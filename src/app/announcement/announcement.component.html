@@ -1,0 +1,36 @@
+<a
+  class="announcement col-span-1 flex justify-center items-center h-full w-full cursor-pointer"
+>
+  <div
+    class="w-64 bg-gray-300 rounded-md overflow-hidden hover:shadow-2xl h-full"
+  >
+    <img
+      [src]="announcement.img"
+      alt="{{ announcement.id }} image"
+      class="w-full h-48 object-cover"
+    />
+    <div class="p-4">
+      <div class="flex justify-between items-end">
+        <div class="font-bold text-lg">
+          {{ announcement.brand.toUpperCase() }}
+        </div>
+
+        <div class="text-sm">
+          {{ announcement.year }}
+        </div>
+      </div>
+
+      <div class="text-xs text-ellipsis flex-nowrap font-semibold">
+        {{ announcement.title }}
+      </div>
+
+      <div class="text-xs my-2">{{ announcement.description }}</div>
+
+      <div class="border-b-2 border-solid border-black"></div>
+
+      <div class="flex justify-end mt-2">
+        <div>{{ price }}</div>
+      </div>
+    </div>
+  </div>
+</a>
