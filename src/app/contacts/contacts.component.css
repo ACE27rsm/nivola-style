@@ -1,0 +1,42 @@
+.map {
+  transform: perspective(1000px) rotateY(25deg) rotateX(35deg) translateX(20px)
+    translateY(-5%);
+  transform-style: "preserve-3d";
+  border-bottom: 3px solid lightgray;
+  border-left: 3px solid lightgray;
+}
+
+.form-element {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  display: flex;
+  gap: 10px;
+  color: white;
+}
+
+.form-element input,
+.form-element textarea {
+  flex-grow: 1;
+}
+
+.form-button {
+  background-color: #0090d3;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+form .errored {
+  border-color: red;
+  color: red
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}

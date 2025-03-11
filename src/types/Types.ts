@@ -32,3 +32,10 @@ export interface IInfiniteScrollItem {
   className: string;
   href: string;
 }
+
+export interface IContactsFormErrors {
+  firstName: boolean;
+  lastName: boolean;
+  email: boolean;
+  message: boolean;
+}
