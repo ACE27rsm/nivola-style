@@ -4,6 +4,7 @@ import { IAnnouncement } from '../../types/Types';
 import { ActivatedRoute } from '@angular/router';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import numberFormat from '../../utils/numberFormat';
 
 @Component({
   selector: 'app-details',
@@ -30,5 +31,13 @@ export class DetailsComponent {
       .finally(() => {
         this.isLoading = false;
       });
+  }
+
+  get price() {
+    return numberFormat(this.announcement?.price || 0, { currency: true });
+  }
+
+  get km() {
+    return numberFormat(this.announcement?.km || 0);
   }
 }

@@ -1,9 +1,12 @@
-<section class="mt-32 flex justify-center">
-  <article class="w-dvw max-w-[1024px]">
+<section class="mt-32 flex justify-center" data-scroll-section>
+  <article class="w-dvw max-w-[1024px] text-white">
     @if (announcement) {
-    <h1>{{ announcement.title }}</h1>
+    <h1 class="font-arial text-8xl text-white">
+      {{ announcement.brand.toUpperCase() }}
+    </h1>
+    <h2 class="font-bold">{{ announcement.title }}</h2>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center rounded-3xl overflow-hidden">
       <div class="w-dvw">
         <ngb-carousel
           [showNavigationArrows]="true"
@@ -21,6 +24,89 @@
           </ng-template>
         </ngb-carousel>
       </div>
+    </div>
+
+    <div class="flex justify-end mt-4">
+      <h3>{{ price }}</h3>
+    </div>
+
+    <p class="whitespace-pre-wrap mt-10">{{ announcement.description }}</p>
+
+    <div class="info-container mt-4">
+      <h4 class="font-bold">INFORMAZIONI</h4>
+
+      <ul>
+        <li>
+          <div>Annuncio:</div>
+          <div>{{ announcement.id }}</div>
+        </li>
+        <li>
+          <div>Marca:</div>
+          <div>{{ announcement.brand }}</div>
+        </li>
+        <li>
+          <div>Modello:</div>
+          <div>{{ announcement.title }}</div>
+        </li>
+        <li>
+          <div>Cilindrata:</div>
+          <div>{{ announcement.displacement }} cc</div>
+        </li>
+        <li>
+          <div>Anno Immatricolazione:</div>
+          <div>{{ announcement.year }}</div>
+        </li>
+        <li>
+          <div>Chilometri Percorsi:</div>
+          <div>{{ km }} km</div>
+        </li>
+        <li>
+          <div>Colore:</div>
+          <div>{{ announcement.color }} km</div>
+        </li>
+        <li>
+          <div>Tipo Offerta:</div>
+          <div>{{ announcement.offerType }}</div>
+        </li>
+        <li>
+          <div>Immatricolata:</div>
+          <div>{{ announcement.registered ? "SI" : "NO" }}</div>
+        </li>
+        <li>
+          <div>Garanzia:</div>
+          <div>{{ announcement.warranty }}</div>
+        </li>
+        <li>
+          <div>Classe:</div>
+          <div>{{ announcement.emissionClass }}</div>
+        </li>
+        <li>
+          <div>Condizioni di Vendita:</div>
+          <div>{{ announcement.sellConditions }}</div>
+        </li>
+        <li>
+          <div>Incidentata:</div>
+          <div>{{ announcement.crashed ? "SI" : "NO" }}</div>
+        </li>
+        <li>
+          <div>Depotenziata:</div>
+          <div>{{ announcement.depowered ? "SI" : "NO" }}</div>
+        </li>
+        <li>
+          <div>ABS:</div>
+          <div>{{ announcement.ABS ? "SI" : "NO" }}</div>
+        </li>
+        <li>
+          <div>Veicolo Elettrico:</div>
+          <div>{{ announcement.ev ? "SI" : "NO" }}</div>
+        </li>
+        <li>
+          <div>Optional:</div>
+          <div class="whitespace-pre-wrap text-end">
+            {{ announcement.optionals }}
+          </div>
+        </li>
+      </ul>
     </div>
     }
   </article>

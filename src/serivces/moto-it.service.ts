@@ -58,45 +58,55 @@ export class MotoItService {
         ?.textContent?.replace('.', '') || 0
     );
 
-    const km = Number(
-      body!
-        .querySelector('tbody :nth-child(2) td')
-        ?.textContent?.replace('.', '') || 0
-    );
+    const listElements = body!.querySelectorAll('tbody>*');
+    let year = 0;
+    let km = 0;
+    let registered = false;
+    let offerType = '';
+    let optionals = '';
+    let warranty = '';
+    let emissionClass = '';
+    let sellConditions = '';
+    let displacement = 0;
+    let crashed = false;
+    let depowered = false;
+    let ABS = false;
+    let ev = false;
+    let color = '';
+    console.log(listElements);
+    listElements.forEach((element) => {
+      const key = element.querySelector('th')?.textContent || '';
+      const value = element.querySelector('td')?.textContent || '';
+      console.log({ key, value });
 
-    const registered =
-      body!.querySelector('tbody :nth-child(3) td')?.textContent === 'Si';
-
-    const offerType =
-      body!.querySelector('tbody :nth-child(4) td')?.textContent || '';
-
-    const warranty =
-      body!.querySelector('tbody :nth-child(5) td')?.textContent || '';
-
-    const emissionClass =
-      body!.querySelector('tbody :nth-child(6) td')?.textContent || '';
-
-    const sellConditions =
-      body!.querySelector('tbody :nth-child(7) td')?.textContent || '';
-
-    const displacement = Number(
-      body!
-        .querySelector('tbody :nth-child(8) td')
-        ?.textContent?.replace(' cc', '')
-        .replace('.', '') || 0
-    );
-
-    const crashed =
-      body!.querySelector('tbody :nth-child(11) td')?.textContent === 'Si';
-
-    const depowered =
-      body!.querySelector('tbody :nth-child(12) td')?.textContent === 'Si';
-
-    const ABS =
-      body!.querySelector('tbody :nth-child(14) td')?.textContent === 'Si';
-
-    const ev =
-      body!.querySelector('tbody :nth-child(16) td')?.textContent === 'Si';
+      if (/km/i.test(key)) {
+        km = Number(value?.replace('.', '') || 0);
+      } else if (/immatricolata/i.test(key)) {
+        registered = value === 'Si';
+      } else if (/incidentata/i.test(key)) {
+        crashed = value === 'Si';
+      } else if (/depotenziata/i.test(key)) {
+        depowered = value === 'Si';
+      } else if (/abs/i.test(key)) {
+        ABS = value === 'Si';
+      } else if (/elettrica/i.test(key)) {
+        ev = value === 'Si';
+      } else if (/offerta/i.test(key)) {
+        offerType = value;
+      } else if (/accessori/i.test(key)) {
+        optionals = value;
+      } else if (/garanzia/i.test(key)) {
+        warranty = value;
+      } else if (/normativa/i.test(key)) {
+        emissionClass = value;
+      } else if (/condizioni/i.test(key)) {
+        sellConditions = value;
+      } else if (/cilindrata/i.test(key)) {
+        displacement = Number(value.replace(' cc', '').replace('.', '') || 0);
+      } else if (/colore/i.test(key)) {
+        color = value;
+      }
+    });
 
     const announcement = {
       id,
@@ -105,6 +115,7 @@ export class MotoItService {
       year: 0,
       price,
       km,
+      optionals,
       img: images[0]?.href || '',
       description,
       images,
@@ -118,6 +129,7 @@ export class MotoItService {
       depowered,
       ABS,
       ev,
+      color,
     };
 
     return announcement;
@@ -212,6 +224,8 @@ export class MotoItService {
         depowered: false,
         ABS: false,
         ev: false,
+        optionals: '',
+        color: '',
       });
     });
 

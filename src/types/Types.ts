@@ -16,6 +16,7 @@ export interface IAnnouncement {
   description: string;
   registered: boolean;
   offerType: string;
+  optionals: string;
   warranty: string;
   emissionClass: string;
   sellConditions: string;
@@ -24,6 +25,7 @@ export interface IAnnouncement {
   depowered: boolean;
   ABS: boolean;
   ev: boolean;
+  color: string;
 }
 
 export interface IInfiniteScrollItem {
