@@ -1,25 +1,33 @@
-<section class="mt-32 flex justify-center" data-scroll-section>
-  <article class="w-dvw max-w-[1024px] text-white">
+<section class="mt-32 flex justify-center p-4" data-scroll-section>
+  <article class="w-full max-w-[1024px] text-white">
     @if (announcement) {
     <h1 class="font-arial text-8xl text-white">
       {{ announcement.brand.toUpperCase() }}
     </h1>
     <h2 class="font-bold">{{ announcement.title }}</h2>
 
-    <div class="flex justify-center rounded-3xl overflow-hidden">
-      <div class="w-dvw">
+    <div
+      class="flex justify-center rounded-3xl overflow-hidden border-2 border-white mt-4 p-2"
+    >
+      <div class="w-full">
         <ngb-carousel
           [showNavigationArrows]="true"
           [showNavigationIndicators]="true"
-          class="min-h-[768px]"
         >
           <ng-template
             ngbSlide
             *ngFor="let image of announcement.images"
             class="w-full"
           >
-            <div class="picsum-img-wrapper flex justify-center">
-              <img [src]="image.thumbnail" class="w-full object-cover" />
+            <div
+              class="picsum-img-wrapper flex justify-center rounded-2xl overflow-hidden m-2"
+            >
+              <img
+                [src]="image.thumbnail"
+                class="w-full object-cover"
+                width="1000px"
+                height="750px"
+              />
             </div>
           </ng-template>
         </ngb-carousel>
