@@ -96,7 +96,7 @@
   id="scrollContent"
 >
   <div
-    class="w-full sm:w-1/2 shrink-0 pr-4"
+    class="w-full md:w-1/2 shrink-0 pr-4"
     data-scroll
     data-scroll-sticky
     data-scroll-target="#scrollContent"
@@ -108,8 +108,8 @@
     />
   </div>
 
-  <div class="flex flex-col items-end justify-end gap-10">
-    <div class="w-1/2 p-4">
+  <div class="flex flex-col items-end justify-end gap-10 z-10">
+    <div class="w-full md:w-1/2 p-4 z-20">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur vero
       similique vel eaque voluptas quos cupiditate, eius dicta quod corporis
       debitis tempora architecto quas distinctio dolore ipsam pariatur atque
@@ -143,7 +143,7 @@
       omnis nemo quaerat aperiam vero eligendi maxime laborum asperiores autem
       neque, consectetur quas eius in cum mollitia.
     </div>
-    <div class="w-1/2 p-4">
+    <div class="w-full md:w-1/2 p-4 z-20">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur vero
       similique vel eaque voluptas quos cupiditate, eius dicta quod corporis
       debitis tempora architecto quas distinctio dolore ipsam pariatur atque
@@ -177,7 +177,7 @@
       omnis nemo quaerat aperiam vero eligendi maxime laborum asperiores autem
       neque, consectetur quas eius in cum mollitia.
     </div>
-    <div class="w-1/2 p-4">
+    <div class="w-full md:w-1/2 p-4 z-20">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur vero
       similique vel eaque voluptas quos cupiditate, eius dicta quod corporis
       debitis tempora architecto quas distinctio dolore ipsam pariatur atque
@@ -214,6 +214,13 @@
   </div>
 </section>
 
+<section data-scroll-section class="my-32 py-10">
+  <div
+    class="w-full text-2xl sm:text-4xl md:text-6xl lg:text-9xl text-white text-center italic"
+  >
+    #MAKE LIFE A RIDE
+  </div>
+</section>
 <section data-scroll-section class="my-32 bg-[#0090D3] py-10">
   <div class="w-full h-20">
     <app-infinite-scroll [items]="brands"></app-infinite-scroll>
