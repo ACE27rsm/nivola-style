@@ -6,8 +6,10 @@
       playsInline="true"
       muted="true"
       loop="true"
+      oncanplay="this.play()"
+      onloadedmetadata="this.muted = true"
     >
-      <source src="/video/hero.mp4" type="video/mp4" />
+      <source src="video/hero.mp4" type="video/mp4" />
     </video>
   </div>
 </section>
@@ -70,7 +72,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img src="/logo/bmw_logo.svg" alt="bmw logo" class="w-20 mx-auto mb-3" />
+    <img src="logo/bmw_logo.svg" alt="bmw logo" class="w-20 mx-auto mb-3" />
 
     <div class="font-bold text-black text-4xl">Concessionaria BMW</div>
     <div class="text-white">Entra nel portale BMW Rimini</div>
@@ -81,7 +83,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img src="/assistenza_icon.svg" alt="bmw logo" class="w-20 mx-auto mb-3" />
+    <img src="assistenza_icon.svg" alt="bmw logo" class="w-20 mx-auto mb-3" />
 
     <div class="font-bold text-black text-4xl">Assistenza</div>
     <div class="text-white">Richiedi un incontro con l'Officina</div>
