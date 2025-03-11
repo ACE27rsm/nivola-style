@@ -65,8 +65,7 @@
             }
           },
           "options": {
-            "hmr": false,
-            "polyfills": ["zone.js", "@angular/localize/init"]
+            "hmr": false
           },
           "defaultConfiguration": "development"
         },
