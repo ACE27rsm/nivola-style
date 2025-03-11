@@ -25,3 +25,10 @@ export interface IAnnouncement {
   ABS: boolean;
   ev: boolean;
 }
+
+export interface IInfiniteScrollItem {
+  src: string;
+  alt: string;
+  className: string;
+  href: string;
+}

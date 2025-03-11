@@ -1,0 +1,23 @@
+<div
+  class="carousel w-full h-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+>
+  <ul
+    class="group flex h-full items-center justify-center md:justify-start [&_li]:mx-8 px-0 [&_img]:max-w-none animate-infinite-scroll"
+  >
+    <li *ngFor="let item of items" class="h-full">
+      <a [href]="item.href" target="_blank" rel="noopener noreferrer">
+        <img [src]="item.src" [alt]="item.alt" [class]="item.className" />
+      </a>
+    </li>
+  </ul>
+  <ul
+    class="group flex h-full items-center justify-center md:justify-start [&_li]:mx-8 px-0 [&_img]:max-w-none animate-infinite-scroll"
+    aria-hidden="true"
+  >
+    <li *ngFor="let item of items" class="h-full">
+      <a [href]="item.href" target="_blank" rel="noopener noreferrer">
+        <img [src]="item.src" [alt]="item.alt" [class]="item.className" />
+      </a>
+    </li>
+  </ul>
+</div>
